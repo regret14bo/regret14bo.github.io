@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轲然-知名作家、编剧与影视策划人官方网站</title>
+    <meta name="description" content="轲然官方网站。本站提供轲然个人简介、主要影视作品介绍、最新文学创作动态、深度访谈及粉丝互动社区。了解轲然在编剧与影视策划领域的专业成就与创作理念。">
+    <meta name="keywords" content="轲然, 轲然编剧, 轲然作品, 轲然访谈, 影视策划, 编剧简介">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c0392b;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        header {
+            height: var(--header-height);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-btn {
+            padding: 10px 24px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 30px;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 20px 20px 0 var(--bg-light);
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+
+        /* Works Section */
+        .works-section {
+            background-color: var(--bg-light);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .work-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .work-poster {
+            height: 420px;
+            overflow: hidden;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .work-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .work-card:hover .work-poster img {
+            transform: scale(1.05);
+        }
+
+        .work-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .work-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .work-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .work-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Interview Section */
+        .interview-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .interview-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .interview-item {
+            background: #fff;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .interview-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .interview-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .interview-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .interview-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .widget {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .widget h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .contact-list li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list i {
+            color: var(--accent-color);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e74c3c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #888;
+            padding: 60px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h5 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-grid, .interview-container { grid-template-columns: 1fr; }
+            .header-inner nav { display: none; } /* Simplified for mobile */
+            .newsletter-form { flex-direction: column; }
+            .hero-stats { flex-wrap: wrap; gap: 20px; }
+            .about-image img { box-shadow: 10px 10px 0 var(--bg-light); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">轲然<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#works">作品</a></li>
+                    <li><a href="#interview">访谈</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-btn">预约合作</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://picsum.photos/seed/koran_hero/1920/1080.jpg" alt="轲然工作照" class="hero-bg">
+            <div class="container hero-content">
+                <span class="hero-tag">编剧 / 策划 / 导演</span>
+                <h1>用故事重塑现实<br>用影像触碰灵魂</h1>
+                <p>欢迎来到轲然的创作空间。这里汇集了他的影视剧本、策划理念以及关于创作与生活的深度思考。</p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#works" class="cta-btn">浏览作品</a>
+                    <a href="#about" class="cta-btn" style="background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.3);">了解更多</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>部院线电影</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>12</h3>
+                        <p>部热播剧集</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>年度奖项提名</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/koran_portrait/600/700.jpg" alt="轲然个人肖像">
+                    </div>
+                    <div class="about-text">
+                        <h2>关于轲然</h2>
+                        <p>轲然，资深影视编剧及策划人，拥有十余年的行业从业经验。他以细腻的情感洞察力和扎实的叙事结构著称，擅长在商业类型片中融入深刻的人文关怀。他的作品往往聚焦于现实题材，通过独特的视角展现人物在时代洪流中的挣扎与成长。</p>
+                        <p>除了编剧工作，轲然还积极参与影视项目的策划与监制，致力于发掘具有潜力的青年导演，推动独立电影的发展。他认为，优秀的剧本是影视作品的灵魂，而真诚是连接观众与角色的唯一桥梁。</p>
+                        <div class="signature">Koran</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="section-padding works-section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">代表作品</h2>
+                    <p class="section-subtitle">精选影视剧本与策划方案，见证每一帧的诞生。</p>
+                </div>
+                <div class="works-grid">
+                    <!-- Work 1 -->
+                    <article class="work-card">
+                        <div class="work-poster">
+                            <img src="https://picsum.photos/seed/film1/400/600.jpg" alt="电影海报">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-tag">电影 / 剧情</span>
+                            <h3 class="work-title">《微光之城》</h3>
+                            <p class="work-desc">一部关于都市孤独与救赎的剧情长片。讲述了两个陌生人如何在城市的缝隙中寻找彼此的故事。</p>
+                            <div class="work-meta">
+                                <span>2023 上映</span>
+                                <span>编剧 & 导演</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 2 -->
+                    <article class="work-card">
+                        <div class="work-poster">
+                            <img src="https://picsum.photos/seed/film2/400/600.jpg" alt="电影海报">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-tag">剧集 / 悬疑</span>
+                            <h3 class="work-title">《迷雾档案》</h3>
+                            <p class="work-desc">悬疑刑侦剧，轲然担任总编剧。通过一系列看似独立的案件，层层剥开隐藏在市井之下的黑暗真相。</p>
+                            <div class="work-meta">
+                                <span>2022 上线</span>
+                                <span>总编剧</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Work 3 -->
+                    <article class="work-card">
+                        <div class="work-poster">
+                            <img src="https://picsum.photos/seed/film3/400/600.jpg" alt="电影海报">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-tag">纪录片 / 历史</span>
+                            <h3 class="work-title">《山河回响》</h3>
+                            <p class="work-desc">大型历史人文纪录片策划案，旨在重现那段波澜壮阔的历史岁月，唤醒民族记忆。</p>
+                            <div class="work-meta">
+                                <span>2021 策划</span>
+                                <span>总策划</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interview Section -->
+        <section id="interview" class="section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">深度访谈</h2>
+                    <p class="section-subtitle">关于创作、行业观察与个人成长的思考。</p>
+                </div>
+                <div class="interview-container">
+                    <div class="interview-list">
+                        <article class="interview-item">
+                            <div class="interview-date">2023年10月15日</div>
+                            <h4 class="interview-title">如何在商业类型片中保持独立思考？</h4>
+                            <p class="interview-excerpt">在一次行业峰会上，轲然分享了他对当下影视市场的看法，认为内容创作者不应被流量裹挟，而应坚持对故事本质的追求。</p>
+                        </article>
+                        <article class="interview-item">
+                            <div class="interview-date">2023年08月22日</div>
+                            <h4 class="interview-title">从文字到影像：编剧的自我修养</h4>
+                            <p class="interview-excerpt">独家专访回顾了轲然从小说创作转向剧本写作的心路历程，以及他对画面语言与文字叙事差异的独到见解。</p>
+                        </article>
+                        <article class="interview-item">
+                            <div class="interview-date">2023年05月10日</div>
+                            <h4 class="interview-title">剧本创作中的“留白”艺术</h4>
+                            <p class="interview-excerpt">探讨了中国传统文化中的留白美学在影视剧本中的应用，如何通过不完整的叙事来激发观众的想象力。</p>
+                        </article>
+                    </div>
+                    <aside class="sidebar">
+                        <div class="widget">
+                            <h4>联系方式</h4>
+                            <ul class="contact-list">
+                                <li><i>✉</i> contact@koran.studio</li>
+                                <li><i>📞</i> +86 138 0000 0000</li>
+                                <li><i>📍</i> 北京市朝阳区影视产业园A座</li>
+                            </ul>
+                            <div style="margin-top: 20px;">
+                                <a href="#" class="cta-btn" style="width: 100%; text-align: center;">申请剧本合作</a>
+                            </div>
+                        </div>
+                        <div class="widget" style="background-color: #333;">
+                            <h4>关注动态</h4>
+                            <p style="font-size: 0.9rem; margin-bottom: 10px;">关注官方微信公众号，获取最新创作动态。</p>
+                            <input type="text" placeholder="输入您的邮箱" style="width: 100%; padding: 8px; border-radius: 4px; border: none; margin-bottom: 5px;">
+                            <button style="width: 100%; padding: 8px; background: #555; color: #fff; border: none; border-radius: 4px; cursor: pointer;">订阅</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="section-padding newsletter">
+            <div class="container">
+                <h2>订阅创作通讯</h2>
+                <p>获取最新的剧本创作指南、影视行业分析及独家访谈内容，每周发送一次，无垃圾邮件。</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('感谢您的订阅！');">
+                    <input type="email" placeholder="请输入您的电子邮箱地址" required>
+                    <button type="submit">立即订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: #fff; display: block; margin-bottom: 15px;">轲然<span>.</span></a>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">专注于优质影视内容的创作与开发，致力于讲好中国故事。</p>
+                </div>
+                <div class="footer-col">
+                    <h5>快速导航</h5>
+                    <ul>
+                        <li><a href="#about">关于我</a></li>
+                        <li><a href="#works">代表作品</a></li>
+                        <li><a href="#interview">深度访谈</a></li>
+                        <li><a href="#">剧本服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>相关链接</h5>
+                    <ul>
+                        <li><a href="#">影视行业白皮书</a></li>
+                        <li><a href="#">编剧培训课程</a></li>
+                        <li><a href="#">合作案例展示</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>法律声明</h5>
+                    <ul>
+                        <li><a href="#">版权隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">版权说明</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 轲然工作室 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
