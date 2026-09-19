@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="背光板行业专业门户，提供LED背光模组技术原理、液晶面板背光结构解析、CCFL与LED背光对比、背光板生产工艺流程及行业最新市场动态资讯。">
+    <meta name="keywords" content="背光板,LED背光,液晶面板,背光模组,液晶屏,显示技术">
+    <title>背光板-显示光学解决方案与模组技术深度解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #00a8e8;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f6f9;
+            --bg-white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn:hover {
+            background-color: #008ecc;
+            transform: translateY(-2px);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Tech Comparison */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Process Flow */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: #e0e0e0;
+            z-index: 0;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .process-steps::before {
+                display: block;
+            }
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-white);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 0 0 4px var(--bg-light);
+        }
+
+        .step h4 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--text-gray);
+            padding: 0 10px;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+        }
+
+        details {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: normal;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details p {
+            margin-top: 15px;
+            color: var(--text-gray);
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>显示视界</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#tech" class="active">技术原理</a></li>
+                    <li><a href="#types">类型对比</a></li>
+                    <li><a href="#process">生产工艺</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>背光板：点亮液晶显示的“心脏”</h1>
+                <p>深入了解背光板模组技术，解析LED与CCFL的技术差异，掌握液晶面板背光结构的核心工艺流程与选购指南。</p>
+                <a href="#types" class="cta-btn">探索技术分类</a>
+            </div>
+        </section>
+
+        <!-- Core Value / Features -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>光学技术</h3>
+                        <p>掌握导光板、扩散板、棱镜片的精密光学设计，提升显示均匀性与亮度效率。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>节能高效</h3>
+                        <p>解析LED背光技术如何降低功耗，实现超薄设计与长寿命应用场景。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📐</div>
+                        <h3>精密制造</h3>
+                        <p>了解背光模组的贴合工艺、光源排列与驱动电路设计原理。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Comparison -->
+        <section id="types" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>主流背光板技术对比</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="comparison-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>特性维度</th>
+                                <th>CCFL背光</th>
+                                <th>LED背光</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>光源类型</strong></td>
+                                <td>冷阴极荧光灯管</td>
+                                <td>发光二极管</td>
+                            </tr>
+                            <tr>
+                                <td><strong>发光原理</strong></td>
+                                <td>气体放电产生紫外线，激发荧光粉发光</td>
+                                <td>半导体载流子复合发光</td>
+                            </tr>
+                            <tr>
+                                <td><strong>色彩表现</strong></td>
+                                <td>色域较窄，通常为NTSC 72%</td>
+                                <td>色域广，可达NTSC 110%-130%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>功耗与寿命</strong></td>
+                                <td>功耗较高，寿命相对较短（约2万-3万小时）</td>
+                                <td>功耗低，寿命长（约5万小时以上）</td>
+                            </tr>
+                            <tr>
+                                <td><strong>厚度与设计</strong></td>
+                                <td>由于灯管结构，厚度较厚，难以做超薄设计</td>
+                                <td>体积小，可做超薄设计，适合便携设备</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Production Process -->
+        <section id="process" class="section" style="background-color: var(--bg-white);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>背光板生产工艺流程</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>光源制备</h4>
+                        <p>将LED芯片固晶在基板上，完成焊线与封装工艺，形成LED光源模组。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>导光板成型</h4>
+                        <p>在亚克力或PMMA板材上蚀刻网点，利用漫反射原理将点光源转化为面光源。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>光学贴合</h4>
+                        <p>将导光板、扩散板、棱镜片等光学材料通过高精度贴合机进行层叠组装。</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h4>总装测试</h4>
+                        <p>将光源板与光学板组装，加入反射膜与遮光胶带，并进行亮度与色温测试。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>背光板常见问题解答</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="faq-container">
+                    <details>
+                        <summary>什么是背光板？它在液晶显示器中起什么作用？</summary>
+                        <p>背光板是液晶显示面板（LCD）的重要组成部分。由于液晶分子本身不发光，背光板通过提供均匀的光源，照亮液晶层，从而实现图像显示。它就像是液晶屏的“心脏”。</p>
+                    </details>
+                    <details>
+                        <summary>LED背光与CCFL背光的主要区别是什么？</summary>
+                        <p>主要区别在于光源、色域、功耗和厚度。CCFL色域较窄，功耗高，寿命短；LED背光色域广、功耗低、寿命长且易于实现超薄设计。目前主流显示器已全面转向LED背光。</p>
+                    </details>
+                    <details>
+                        <summary>背光板的亮度不均匀怎么办？</summary>
+                        <p>亮度不均匀通常由光学材料贴合不平整、导光板网点分布不均或光源排列错误导致。这需要通过精密的光学检测设备进行校正，或更换受损的光学膜片。</p>
+                    </details>
+                    <details>
+                        <summary>如何判断一块屏幕是否为LED背光？</summary>
+                        <p>最直观的方法是观察屏幕边缘。LED背光屏幕的边缘通常较窄且均匀，边缘发光效果较好；而老旧的CCFL屏幕边缘较宽，且在关机时边缘可能会出现微弱的蓝色辉光。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于显示视界</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        专注于显示光学技术的行业资讯平台，提供最专业的背光板技术解析与行业动态。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>技术栏目</h4>
+                    <ul>
+                        <li><a href="#">LED背光技术</a></li>
+                        <li><a href="#">LCD模组工艺</a></li>
+                        <li><a href="#">OLED技术原理</a></li>
+                        <li><a href="#">显示色彩管理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>常用资源</h4>
+                    <ul>
+                        <li><a href="#">行业标准文档</a></li>
+                        <li><a href="#">光学材料手册</a></li>
+                        <li><a href="#">设备采购指南</a></li>
+                        <li><a href="#">技术论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：contact@display-view.com</li>
+                        <li>电话：400-123-4567</li>
+                        <li>地址：科技园区创新大道88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 显示视界. All Rights Reserved. 本网站内容仅供技术交流与参考，不构成购买建议。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                                                                                </html>
