@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="莉娜安德森-知名作家莉娜·安德森作品全集、创作背景、文学风格及深度书评。收录长篇小说、短篇故事及影视改编作品，提供正版阅读渠道与作者生平资料。">
+    <meta name="keywords" content="莉娜安德森, 莉娜·安德森, 莉娜安德森作品, 莉娜安德森小说, 莉娜安德森书评, 莉娜安德森传记">
+    <title>莉娜安德森-知名作家作品全集与深度阅读指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-subscribe {
+            padding: 0.5rem 1.2rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .btn-subscribe:hover {
+            background-color: #1a252f;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .view-all {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Book Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .book-cover {
+            height: 300px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-info {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-category {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .book-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .rating {
+            color: #f1c40f;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #fff;
+            padding: 4rem 0;
+            border-radius: var(--border-radius);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .author-portrait {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .author-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .author-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.7;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin: 1rem 0;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .author-portrait {
+                height: 300px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">Lina<span>Anderson</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#works">作品全集</a></li>
+                    <li><a href="#about">作者简介</a></li>
+                    <li><a href="#categories">文学流派</a></li>
+                    <li><a href="#reviews">读者书评</a></li>
+                </ul>
+            </nav>
+            <a href="#subscribe" class="btn-subscribe">订阅更新</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索莉娜安德森的文学世界</h1>
+                <p>深入解析莉娜·安德森的代表作，涵盖历史小说、现代文学及短篇集。提供详尽的创作背景、人物分析及正版阅读指南。</p>
+                <a href="#works" class="btn-subscribe" style="background: white; color: var(--primary-color);">开始阅读</a>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>12</h3>
+                        <p>长篇小说</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>45+</h3>
+                        <p>短篇小说集</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>300万+</h3>
+                        <p>全球读者</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Works -->
+        <section id="works" class="container">
+            <div class="section-header">
+                <h2 class="section-title">精选代表作</h2>
+                <a href="#" class="view-all">查看全部作品 &rarr;</a>
+            </div>
+            
+            <div class="book-grid">
+                <!-- Book 1 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/lina1/300/400" alt="永恒的边界 封面">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">历史悬疑</span>
+                        <h3 class="book-title">永恒的边界</h3>
+                        <p class="book-desc">讲述了19世纪末一名探险家在未知的边界地带寻找失落文明的惊险历程，融合了历史真实与虚构传奇。</p>
+                        <div class="book-meta">
+                            <span class="rating">★★★★☆</span>
+                            <span>2023年出版</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 2 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/lina2/300/400" alt="城市回声 封面">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">现代都市</span>
+                        <h3 class="book-title">城市回声</h3>
+                        <p class="book-desc">聚焦现代都市中不同阶层人群的生活片段，通过细腻的笔触描绘了在大城市中奋斗的年轻人的迷茫与希望。</p>
+                        <div class="book-meta">
+                            <span class="rating">★★★★★</span>
+                            <span>2022年出版</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 3 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/lina3/300/400" alt="暮色森林 封面">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">奇幻冒险</span>
+                        <h3 class="book-title">暮色森林</h3>
+                        <p class="book-desc">一部带有浓厚寓言色彩的奇幻小说，讲述了主角在迷雾森林中寻找自我并拯救世界的冒险故事。</p>
+                        <div class="book-meta">
+                            <span class="rating">★★★★☆</span>
+                            <span>2021年出版</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 4 -->
+                <article class="book-card">
+                    <div class="book-cover">
+                        <img src="https://picsum.photos/seed/lina4/300/400" alt="记忆碎片 封面">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">心理推理</span>
+                        <h3 class="book-title">记忆碎片</h3>
+                        <p class="book-desc">通过非线性叙事结构，探索记忆遗忘与心理创伤的主题，是一部引人深思的推理小说。</p>
+                        <div class="book-meta">
+                            <span class="rating">★★★★★</span>
+                            <span>2020年出版</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- About Author -->
+        <section id="about" class="container">
+            <div class="about-section">
+                <div class="about-content">
+                    <div class="author-portrait">
+                        <img src="https://picsum.photos/seed/author_portrait/400/500" alt="莉娜·安德森肖像">
+                    </div>
+                    <div class="author-text">
+                        <h2>关于莉娜·安德森</h2>
+                        <p>莉娜·安德森是一位享誉国际的当代作家，出生于北欧，后移居伦敦。她的作品以深刻的心理描写和宏大的叙事结构著称，擅长将历史背景与现代人文关怀相结合。</p>
+                        <p>自2005年处女作出版以来，莉娜已出版了超过15部小说，并被翻译成30多种语言。她的作品多次获得文学奖项，并被改编为影视作品和戏剧。</p>
+                        <p>她坚持认为，好的文学应该像一面镜子，不仅反映现实，还能照亮读者内心深处的角落。目前，她正致力于撰写一部关于20世纪社会变迁的长篇史诗。</p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">✒️</div>
+                                <h4>笔触细腻</h4>
+                                <p style="font-size:0.9rem; color:#666;">擅长捕捉微小的情感变化</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🌍</div>
+                                <h4>视野开阔</h4>
+                                <p style="font-size:0.9rem; color:#666;">作品跨越多国文化背景</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🏆</div>
+                                <h4>荣誉等身</h4>
+                                <p style="font-size:0.9rem; color:#666;">多次获得国际文学奖项</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories & Info -->
+        <section id="categories" class="container">
+            <div class="section-header">
+                <h2 class="section-title">作品分类与阅读指南</h2>
+            </div>
+            <div class="book-grid">
+                <article class="book-card">
+                    <div class="book-info">
+                        <span class="book-category">类别</span>
+                        <h3 class="book-title">历史小说</h3>
+                        <p class="book-desc">聚焦重大历史事件，通过虚构人物视角还原历史真相。</p>
+                    </div>
+                </article>
+                <article class="book-card">
+                    <div class="book-info">
+                        <span class="book-category">类别</span>
+                        <h3 class="book-title">当代文学</h3>
+                        <p class="book-desc">关注当下社会议题，探讨科技、环境与人类关系。</p>
+                    </div>
+                </article>
+                <article class="book-card">
+                    <div class="book-info">
+                        <span class="book-category">类别</span>
+                        <h3 class="book-title">短篇小说</h3>
+                        <p class="book-desc">短小精悍，富有哲理，适合碎片化阅读。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="color:white;">Lina<span>Anderson</span></a>
+                    <p>致力于推广优秀文学作品，为读者提供最纯净的阅读体验。版权所有 © 2023 Lina Anderson Literature.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">作品列表</a></li>
+                        <li><a href="#">作者动态</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>阅读分类</h4>
+                    <ul>
+                        <li><a href="#">历史悬疑</a></li>
+                        <li><a href="#">现代都市</a></li>
+                        <li><a href="#">奇幻冒险</a></li>
+                        <li><a href="#">心理推理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持服务</h4>
+                    <ul>
+                        <li><a href="#">正版购买</a></li>
+                        <li><a href="#">版权合作</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Lina Anderson Literature. All rights reserved. 本站为内容展示示例页面。
+            </div>
+        </div>
+    </footer>
+
+</body>
+                  </html>
