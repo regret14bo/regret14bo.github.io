@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="唐诗宋词元曲大全 - 中国古典诗词在线阅读平台。收录历代经典唐诗、宋词及元曲作品，提供全文检索、赏析注释及文学背景介绍，是文学爱好者学习古典诗词的最佳资源。">
+    <meta name="keywords" content="唐诗, 宋词, 元曲, 古诗词, 中国古典文学, 诗词鉴赏, 李白, 杜甫">
+    <title>唐诗宋词元曲-中国古典诗词在线阅读与鉴赏平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 14px;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            width: 240px;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .hero-tag:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 5px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .section-title a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* List Style (Dynasties) */
+        .dynasty-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .dynasty-card {
+            background: var(--card-bg);
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .dynasty-card:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .dynasty-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .dynasty-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Featured Poem Section */
+        .featured-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .poem-highlight {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .poem-highlight h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .poem-highlight .author {
+            font-size: 18px;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .poem-content {
+            font-size: 20px;
+            line-height: 2;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .poem-content .line {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .poem-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #a93226;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .info-card ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .info-card ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ecf0f1;
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-3, .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .featured-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Simplify for mobile */
+            }
+            .header-inner {
+                justify-content: center;
+            }
+            .grid-3, .grid-4, .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>诗</span>词
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">唐诗</a>
+                <a href="#">宋词</a>
+                <a href="#">元曲</a>
+                <a href="#">赏析</a>
+                <a href="#">作者</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索诗词、作者...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>唐诗宋词元曲</h1>
+        <p>穿越千年时光，品味中华古典文学之美。收录从先秦至元代最具代表性的诗词曲作品，为您提供便捷的在线阅读与深度鉴赏。</p>
+        <div class="hero-tags">
+            <span class="hero-tag">李白</span>
+            <span class="hero-tag">杜甫</span>
+            <span class="hero-tag">苏轼</span>
+            <span class="hero-tag">李清照</span>
+            <span class="hero-tag">关汉卿</span>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Featured Highlight -->
+        <section class="featured-section">
+            <div class="poem-highlight">
+                <h2>《春江花月夜》</h2>
+                <div class="author">张若虚 · 唐代</div>
+                <div class="poem-content">
+                    <span class="line">春江潮水连海平，海上明月共潮生。</span>
+                    <span class="line">滟滟随波千万里，何处春江无月明！</span>
+                    <span class="line">江流宛转绕芳甸，月照花林皆似霰。</span>
+                    <span class="line">空里流霜不觉飞，汀上白沙看不见。</span>
+                    <span class="line">江天一色无纤尘，皎皎空中孤月轮。</span>
+                </div>
+                <div class="poem-actions">
+                    <button class="btn btn-primary">全诗赏析</button>
+                    <button class="btn btn-outline">下载收藏</button>
+                </div>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>什么是唐诗？</h3>
+                    <p style="font-size:14px; color:#666; margin-bottom:10px;">唐诗是中国古代文学的高峰，代表了诗歌艺术的成熟。其形式多样，风格各异，内容广泛。</p>
+                    <ul>
+                        <li>格律严谨，音韵和谐</li>
+                        <li>题材丰富：山水田园、边塞军旅、怀古咏史</li>
+                        <li>代表人物：李白、杜甫、王维、白居易</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>什么是宋词？</h3>
+                    <p style="font-size:14px; color:#666; margin-bottom:10px;">宋词是宋代盛行的文学体裁，句子长短不一，节奏多变，适合抒发细腻情感。</p>
+                    <ul>
+                        <li>词牌众多，体制灵活</li>
+                        <li>情感细腻，婉约豪放并存</li>
+                        <li>代表人物：苏轼、李清照、辛弃疾</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three Dynasties Overview -->
+        <section>
+            <div class="section-title">
+                <h2>三大体裁概览</h2>
+                <a href="#">查看全部 &rarr;</a>
+            </div>
+            <div class="grid-3">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/tang/400/250" alt="唐诗封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">唐诗</h3>
+                        <p class="card-subtitle">唐代诗歌成就</p>
+                        <p class="card-desc">唐诗是中国古典诗歌发展的顶峰，无论是五言还是七言，都达到了极高的艺术水准。</p>
+                        <div class="card-footer">
+                            <span>体裁：近体诗、古体诗</span>
+                            <span>数量：约5万首</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/song/400/250" alt="宋词封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">宋词</h3>
+                        <p class="card-subtitle">宋代文学精华</p>
+                        <p class="card-desc">宋词以其独特的长短句形式，突破了律诗的格律束缚，成为表达情感的最佳载体。</p>
+                        <div class="card-footer">
+                            <span>体裁：小令、慢词</span>
+                            <span>风格：婉约、豪放</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/yuan/400/250" alt="元曲封面" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">元曲</h3>
+                        <p class="card-subtitle">元代散曲与杂剧</p>
+                        <p class="card-desc">元曲包括散曲和杂剧，语言通俗活泼，节奏明快，反映了元代市民阶层的审美趣味。</p>
+                        <div class="card-footer">
+                            <span>体裁：散曲、杂剧</span>
+                            <span>代表作：《窦娥冤》</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Dynasty Categories -->
+        <section style="margin-top: 60px;">
+            <div class="section-title">
+                <h2>按朝代分类浏览</h2>
+                <a href="#">更多朝代 &rarr;</a>
+            </div>
+            <div class="dynasty-list">
+                <div class="dynasty-card">
+                    <h3>先秦</h3>
+                    <p>诗经、楚辞</p>
+                </div>
+                <div class="dynasty-card">
+                    <h3>汉</h3>
+                    <p>乐府诗、古诗十九首</p>
+                </div>
+                <div class="dynasty-card">
+                    <h3>魏晋</h3>
+                    <p>建安风骨、田园诗</p>
+                </div>
+                <div class="dynasty-card">
+                    <h3>南北朝</h3>
+                    <p>宫体诗、乐府民歌</p>
+                </div>
+                <div class="dynasty-card">
+                    <h3>唐代</h3>
+                    <p>初唐、盛唐、中晚唐</p>
+                </div>
+                <div class="dynasty-card">
+                    <h3>宋代</h3>
+                    <p>北宋、南宋</p>
+                </div>
+                <div class="dynasty-card">
+                    <h3>元代</h3>
+                    <p>散曲、杂剧</p>
+                </div>
+                <div class="dynasty-card">
+                    <h3>明代</h3>
+                    <p>拟古派、公安派</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Famous Authors -->
+        <section style="margin-top: 60px;">
+            <div class="section-title">
+                <h2>历代名家</h2>
+                <a href="#">查看名家录 &rarr;</a>
+            </div>
+            <div class="grid-4">
+                <article class="card" style="padding: 20px; text-align: center;">
+                    <img src="https://picsum.photos/seed/li_bai/100/100" alt="李白" style="width:80px; height:80px; border-radius:50%; margin:0 auto 10px;">
+                    <h4 class="card-title">李白</h4>
+                    <p class="card-subtitle">诗仙</p>
+                    <p style="font-size:12px; color:#999;">诗仙 · 豪放飘逸</p>
+                </article>
+                <article class="card" style="padding: 20px; text-align: center;">
+                    <img src="https://picsum.photos/seed/du_fu/100/100" alt="杜甫" style="width:80px; height:80px; border-radius:50%; margin:0 auto 10px;">
+                    <h4 class="card-title">杜甫</h4>
+                    <p class="card-subtitle">诗圣</p>
+                    <p style="font-size:12px; color:#999;">诗圣 · 沉郁顿挫</p>
+                </article>
+                <article class="card" style="padding: 20px; text-align: center;">
+                    <img src="https://picsum.photos/seed/su_shi/100/100" alt="苏轼" style="width:80px; height:80px; border-radius:50%; margin:0 auto 10px;">
+                    <h4 class="card-title">苏轼</h4>
+                    <p class="card-subtitle">东坡居士</p>
+                    <p style="font-size:12px; color:#999;">文豪 · 词豪</p>
+                </article>
+                <article class="card" style="padding: 20px; text-align: center;">
+                    <img src="https://picsum.photos/seed/li_qing_zhao/100/100" alt="李清照" style="width:80px; height:80px; border-radius:50%; margin:0 auto 10px;">
+                    <h4 class="card-title">李清照</h4>
+                    <p class="card-subtitle">易安居士</p>
+                    <p style="font-size:12px; color:#999;">千古才女 · 婉约词宗</p>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于诗词</h4>
+                <ul>
+                    <li><a href="#">网站介绍</a></li>
+                    <li><a href="#">收录标准</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>内容分类</h4>
+                <ul>
+                    <li><a href="#">唐诗三百首</a></li>
+                    <li><a href="#">宋词三百首</a></li>
+                    <li><a href="#">元曲选</a></li>
+                    <li><a href="#">古典散文</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>常用工具</h4>
+                <ul>
+                    <li><a href="#">平仄查询</a></li>
+                    <li><a href="#">韵律检测</a></li>
+                    <li><a href="#">诗词格律表</a></li>
+                    <li><a href="#">在线翻译</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p style="font-size:14px; color:#bdc3c7; margin-bottom:10px;">致力于传播中国古典诗词文化。</p>
+                <p style="font-size:12px; color:#7f8c8d;">Email: contact@poetry.cn</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 唐诗宋词元曲在线阅读平台. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+                      </html>
