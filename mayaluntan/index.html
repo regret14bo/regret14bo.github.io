@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="玛雅论坛作品是创作者分享高质量原创内容、探讨创作技巧、交流设计灵感的综合社区。在这里发现最新热门作品、热门榜单及经典推荐。">
+    <meta name="keywords" content="玛雅论坛作品,玛雅论坛,原创作品,设计灵感,插画分享,创意社区">
+    <title>玛雅论坛作品-原创创意分享与热门作品展示平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --dark-bg: #2d3436;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-secondary: #636e72;
+            --bg-body: #f5f6fa;
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(108, 92, 231, 0.15);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            padding: 0.8rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f1f2f6;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #8e44ad 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Filters */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            background: white;
+            border: 1px solid #dfe6e9;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #dfe6e9;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #dfe6e9;
+        }
+
+        /* Ranking Section */
+        .ranking-section {
+            background: white;
+            padding: 3rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            transition: background 0.2s;
+        }
+
+        .ranking-item:hover {
+            background: #eef1f5;
+        }
+
+        .rank-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-secondary);
+            width: 40px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .rank-1 .rank-number { color: #ff7675; }
+        .rank-2 .rank-number { color: #fdcb6e; }
+        .rank-3 .rank-number { color: #e17055; }
+
+        .rank-info {
+            flex-grow: 1;
+            margin-left: 1rem;
+        }
+
+        .rank-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .rank-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .rank-actions button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 3rem 0;
+            border-top: 1px solid #dfe6e9;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                <span>玛雅论坛</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">作品首页</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">创作工坊</a></li>
+                    <li><a href="#">交流社区</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索作品...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>发现无限创意灵感</h1>
+                <p>在玛雅论坛探索海量原创作品，与创作者共同交流设计理念，分享艺术成果。这里是你的灵感孵化器。</p>
+                <a href="#featured" class="btn btn-primary">浏览最新作品</a>
+            </div>
+        </section>
+
+        <section class="container" id="featured">
+            <h2 class="section-title">精选热门作品</h2>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active">全部</button>
+                <button class="filter-btn">插画</button>
+                <button class="filter-btn">摄影</button>
+                <button class="filter-btn">3D建模</button>
+                <button class="filter-btn">数字绘画</button>
+            </div>
+
+            <div class="content-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/art1/400/300" alt="赛博朋克城市概念设计" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">3D建模</span>
+                        <h3 class="card-title">赛博朋克城市概念设计：霓虹之夜</h3>
+                        <p class="card-desc">探索未来城市的建筑美学，使用Blender进行高精度渲染，展现夜晚的繁华与科技感。</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <img src="https://picsum.photos/seed/u1/50/50" alt="用户头像" class="author-avatar">
+                                <span>设计狂人</span>
+                            </div>
+                            <div>
+                                <span>👁 1.2k</span>
+                                <span style="margin: 0 8px;">|</span>
+                                <span>❤ 345</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/art2/400/300" alt="唯美古风人物插画" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">数字绘画</span>
+                        <h3 class="card-title">水墨丹青：古风人物肖像</h3>
+                        <p class="card-desc">结合传统国画技法与现代板绘工具，创作的一组具有东方韵味的角色设计。</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <img src="https://picsum.photos/seed/u2/50/50" alt="用户头像" class="author-avatar">
+                                <span>墨染流年</span>
+                            </div>
+                            <div>
+                                <span>👁 890</span>
+                                <span style="margin: 0 8px;">|</span>
+                                <span>❤ 210</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/art3/400/300" alt="自然风光摄影作品" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">摄影</span>
+                        <h3 class="card-title">迷雾森林：清晨的第一缕光</h3>
+                        <p class="card-desc">在深山老林中捕捉晨雾散去时的一瞬间，使用长曝光技术记录光影变化。</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <img src="https://picsum.photos/seed/u3/50/50" alt="用户头像" class="author-avatar">
+                                <span>光影猎人</span>
+                            </div>
+                            <div>
+                                <span>👁 2.5k</span>
+                                <span style="margin: 0 8px;">|</span>
+                                <span>❤ 678</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/art4/400/300" alt="极简主义UI设计" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">UI设计</span>
+                        <h3 class="card-title">极简主义金融APP界面重构</h3>
+                        <p class="card-desc">去除冗余元素，专注于数据可视化的清晰度，提升用户体验的交互设计案例。</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <img src="https://picsum.photos/seed/u4/50/50" alt="用户头像" class="author-avatar">
+                                <span>PixelMaster</span>
+                            </div>
+                            <div>
+                                <span>👁 560</span>
+                                <span style="margin: 0 8px;">|</span>
+                                <span>❤ 120</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/art5/400/300" alt="机械臂动画设计" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">动态图形</span>
+                        <h3 class="card-title">机械臂操作流程演示动画</h3>
+                        <p class="card-desc">通过After Effects制作的机械臂动作分解，包含关键帧与表达式应用。</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <img src="https://picsum.photos/seed/u5/50/50" alt="用户头像" class="author-avatar">
+                                <span>MotionLab</span>
+                            </div>
+                            <div>
+                                <span>👁 1.8k</span>
+                                <span style="margin: 0 8px;">|</span>
+                                <span>❤ 410</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/art6/400/300" alt="卡通角色原画" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">原画设计</span>
+                        <h3 class="card-title">Q版角色设定：呆萌小怪兽</h3>
+                        <p class="card-desc">为独立游戏设计的可爱风格角色，包含表情包与动态姿势图。</p>
+                        <div class="card-footer">
+                            <div class="author">
+                                <img src="https://picsum.photos/seed/u6/50/50" alt="用户头像" class="author-avatar">
+                                <span>插画师小A</span>
+                            </div>
+                            <div>
+                                <span>👁 3.1k</span>
+                                <span style="margin: 0 8px;">|</span>
+                                <span>❤ 890</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="ranking-section">
+            <div class="container">
+                <h2 class="section-title">本周热门榜单</h2>
+                <div class="ranking-list">
+                    <div class="ranking-item rank-1">
+                        <div class="rank-number">1</div>
+                        <div class="rank-info">
+                            <h4>星际探索：深空舰队</h4>
+                            <p>作者：SpaceWalker · 3D渲染</p>
+                        </div>
+                        <div class="rank-actions">
+                            <button>查看详情</button>
+                        </div>
+                    </div>
+                    <div class="ranking-item rank-2">
+                        <div class="rank-number">2</div>
+                        <div class="rank-info">
+                            <h4>复古港风人像摄影集</h4>
+                            <p>作者：胶片控 · 人像摄影</p>
+                        </div>
+                        <div class="rank-actions">
+                            <button>查看详情</button>
+                        </div>
+                    </div>
+                    <div class="ranking-item rank-3">
+                        <div class="rank-number">3</div>
+                        <div class="rank-info">
+                            <h4>霓虹灯下的赛博少女</h4>
+                            <p>作者：NeonDreamer · 数位板绘画</p>
+                        </div>
+                        <div class="rank-actions">
+                            <button>查看详情</button>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="rank-number">4</div>
+                        <div class="rank-info">
+                            <h4>低多边形风景速写</h4>
+                            <p>作者：PolyGoer · 3D建模</p>
+                        </div>
+                        <div class="rank-actions">
+                            <button>查看详情</button>
+                        </div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="rank-number">5</div>
+                        <div class="rank-info">
+                            <h4>城市街头摄影：雨夜</h4>
+                            <p>作者：StreetLens · 摄影</p>
+                        </div>
+                        <div class="rank-actions">
+                            <button>查看详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>准备好展示你的作品了吗？</h2>
+                <p>加入玛雅论坛，上传你的创作，获取来自全球创作者的反馈与灵感。</p>
+                <a href="#" class="btn btn-primary">立即发布作品</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">社区规则</a>
+                <a href="#">版权声明</a>
+                <a href="#">联系管理员</a>
+                <a href="#">帮助中心</a>
+            </div>
+            <p>&copy; 2023 玛雅论坛作品展示平台. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互脚本：筛选按钮点击效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有激活状态
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // 激活当前按钮
+                    this.classList.add('active');
+                    
+                    // 这里可以添加实际的筛选逻辑，例如显示/隐藏卡片
+                    // 演示效果：仅控制样式
+                    const cards = document.querySelectorAll('.card');
+                    cards.forEach(card => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    });
+                });
+            });
+
+            // 导航栏滚动效果（可选）
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                } else {
+                    header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.05)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
